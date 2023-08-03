@@ -218,8 +218,10 @@ export class Timeline extends TimelineEventsEmitter {
       console.log('Cannot initialize canvas context.');
       return;
     }
-
-    this._container.style.position = 'relative';
+    this._scrollContainer.id = 'timeline-scroll-container';
+    this._scrollContent.id = 'timeline-container';
+    this._canvas.id = 'timeline_canvas';
+    this._container.style.position = 'absolute';
     // Generate size container:
     this._canvas.style.cssText =
       'image-rendering: -moz-crisp-edges;' +
@@ -242,8 +244,9 @@ export class Timeline extends TimelineEventsEmitter {
       'padding: inherit';
 
     // Those styles are hardcoded and required for the proper scrolling.
-    this._scrollContainer.style.cssText = 'overflow: scroll;' + 'position: absolute;' + 'width:  100%;' + 'height:  100%;';
-    this._scrollContent.style.width = this._scrollContent.style.height = '100%';
+    this._scrollContainer.style.cssText = 'overflow: hidden;' + 'position: absolute;' + 'width:  100%;' + 'height:  100%;';
+    this._scrollContent.style.height = '100%';
+    this._scrollContent.style.width = 'calc(100% - 317px)';
 
     // add the text node to the created div
     this._scrollContainer.appendChild(this._scrollContent);

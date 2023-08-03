@@ -36,8 +36,8 @@ export const defaultTimelineOptions = {
    * additional left margin in pixels to start the line gauge from.
    */
   leftMargin: 25,
-  headerFillColor: '#101011',
-  fillColor: '#101011',
+  headerFillColor: '#313131FF',
+  fillColor: '#313131FF',
 
   labelsColor: '#D5D5D5',
   /**

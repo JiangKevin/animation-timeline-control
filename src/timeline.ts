@@ -246,14 +246,14 @@ export class Timeline extends TimelineEventsEmitter {
     // Those styles are hardcoded and required for the proper scrolling.
     this._scrollContainer.style.cssText = 'overflow: hidden;' + 'position: absolute;' + 'width:  100%;' + 'height:  100%;';
     this._scrollContent.style.height = '100%';
-    this._scrollContent.style.width = 'calc(100% - 317px)';
+    this._scrollContent.style.width = '100%';
 
     // add the text node to the created div
     this._scrollContainer.appendChild(this._scrollContent);
     this._container.appendChild(this._scrollContainer);
     const scrollBarWidth = this._scrollContainer.offsetWidth - this._scrollContent.clientWidth;
     // Calculate current browser scrollbar size and add offset for the canvas
-    this._canvas.style.width = this._canvas.style.height = 'calc(100% -' + (scrollBarWidth || 17) + 'px)';
+    this._canvas.style.width = this._canvas.style.height = 'calc(100% -' + (scrollBarWidth || 0) + 'px)';
 
     this._container.appendChild(this._canvas);
     this._ctx = this._getCtx();
@@ -2063,6 +2063,7 @@ export class Timeline extends TimelineEventsEmitter {
     } else {
       // Clear if bg not set.
       this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
+      console.log('asdfasf');
     }
   };
 
